@@ -1,0 +1,51 @@
+* {
+    font-family: 'Carme', sans-serif;
+    background-color: lightblue;
+}
+
+h1 {
+    /* text-align: center;
+    margin: auto; */
+    width: 100%;
+    padding: 0px 20px;
+}
+
+h3 {
+    font-size: 20px;
+    text-decoration: purple wavy underline;
+}
+
+.box {
+    float: left;
+    width: 350px;
+    height: 500px;
+    margin: 20px;
+    padding: 20px;
+    border: solid black;
+    
+}
+
+body {
+    margin: auto;
+}
+input {
+    width: 100px;
+    margin: 5px;
+    padding: 2px;
+}
+
+input[type=text]:focus {
+    background-color: lavenderblush;
+}
+
+#start, #submit {
+    display: inline-block;
+    margin: 5px 0px;
+    font-weight: 600;
+    background-color: #D3C2E5;
+}
+
+.message {
+    font-size: 20px;
+}
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Guess My Number</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Carme&family=Fira+Mono&family=Harmattan&family=Thasadith&display=swap" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+    <body>
+        <h1>🤖🤖Guess My Number🤖🤖</h1>
+
+        <div class="box">
+            <h3>▼How to play</h3>
+            <ol>
+                <li>Set the range. <br>The default range is 1 to 100 (inclusive). </li><br>
+                <li>Press Start Game to generate a secret number for you to guess.</li><br>
+                <li>Enter a number in the Your Guess box.</li><br>
+                <li>Press Submit Guess button to check the result!</li><br>
+                <li>To play another round, press Start Game.</li>
+            </ol>
+            <p><strong>Note:</strong> If you enter a value that is not within the range, it will still count as a guess.</p>
+        </div>
+   
+        <div class="box">
+            <form id="firstForm">
+                <h3>▼Set the range and press Start Game</h3>
+                <label for="minimum"> Minimum: </label>
+                <input type="number" id="minimum" name="minimum" value="1"><br>
+
+                <label for="maximum"> Maximum: </label>
+                <input type="number" id="maximum" name="maximum" value="100"><br>
+
+                <button type="submit" id="start" onclick="enableSubmitButton()">Start Game</button><br>
+            </form>
+
+            <form id="secondForm">
+                <h3>▼Enter your guess here</h3>
+                <label for="guess"> Your Guess:</label>
+                <input type="number" id="guess" name="guess"><br>
+
+                <button type="submit" id="submit" disabled>Submit Guess</button><br>
+            </form>
+
+            <p class="message"></p>
+            <h3>▼How you are doing</h3>
+            <p class="counter">Number of guesses: </p>  
+            <p class="list">Your guesses: </p>
+    
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
