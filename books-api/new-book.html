@@ -1,3 +1,4 @@
+<!-- Create HTML form with the book info fields. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,10 @@
         <hr>
         <h1>Create New Book</h1>
         <hr>
-    
+        <!-- By using HTML form's action attribute, we will send the data to the API. -->
+        <!-- Form tag's attribute corresponds to the endpoint and the information that is 
+            sent with the submit button is the info our method parses and adds to the book array. 
+            The method POST matches what is in the book-api.js. -->
         <form action="http://localhost:3003/book" method="POST">
             <div class="form-group">
                 <label for="ISBN">ISBN</label>
@@ -43,7 +47,6 @@
                 <input class="form-control" name="pageCount">
             </div>
     
-            <!--Other fields-->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
