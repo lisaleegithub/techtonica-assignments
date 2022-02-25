@@ -1,14 +1,20 @@
+// Import the express framework
 const express = require('express');
+
+// Import body-parser: decodes the body from an HTTP request
 const bodyParser = require('body-parser');
+
+// Import cors (cross-origin resource sharing): a browser security feature 
+// that restricts cross-origin HTTP requests with other servers and 
+// specifies which domains access your resources.
 const cors = require('cors');
 
+// Instantiate express and assign app variable
 const app = express();
+// Set port to be used when we tell the app to listen to requests
 const port = 3003;
 
-
-// node_modules not ignored, not sure why?
-
-// my books
+// Array to store books
 let books = [{
     "isbn": "9781846276149",
     "title": "Nine Pints",
@@ -42,24 +48,29 @@ let books = [{
     "pageCount": 256,
 }];
 
+// Configure cors middleware
 app.use(cors());
 
-// configure body parser middleware
+// Configure body parser middleware
+// Grab the HTTP body, decode the info, and append it to the req.body.
+// Can easily retrieve info from the form
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Syntax: app.method(path on the server, function executed when the route is matched)
 app.post('/book', (req, res) => {
     const book = req.body;
     
-    //output
+    // Output the book to the console for debugging
     console.log(book);
+    // Add the book to the book array
     books.push(book);
     
+    // This function accepts a single parameter body 
+    // that describe the body which is to be sent in the response.
     res.send('Book is added to the database');
 }) 
 
-// app.get('/books', (req, res) => {
-//     res.json(books);
-// });
-
+// Start clients and run the app and visit the endpoint
+// node book-api.js
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
