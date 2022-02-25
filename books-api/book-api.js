@@ -9,9 +9,9 @@ const bodyParser = require('body-parser');
 // specifies which domains access your resources.
 const cors = require('cors');
 
-// Instantiate express and assign app variable
+// Instantiate express and assign app variable.
 const app = express();
-// Set port to be used when we tell the app to listen to requests
+// Set port to be used when we tell the app to listen to requests.
 const port = 3003;
 
 // Array to store books
@@ -51,9 +51,9 @@ let books = [{
 // Configure cors middleware
 app.use(cors());
 
-// Configure body parser middleware
+// Configure body parser middleware.
 // Grab the HTTP body, decode the info, and append it to the req.body.
-// Can easily retrieve info from the form
+// Can easily retrieve info from the form.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -61,9 +61,9 @@ app.use(bodyParser.json());
 app.post('/book', (req, res) => {
     const book = req.body;
     
-    // Output the book to the console for debugging
+    // Output the book to the console for debugging.
     console.log(book);
-    // Add the book to the book array
+    // Add the book to the book array.
     books.push(book);
     
     // This function accepts a single parameter body 
@@ -71,6 +71,13 @@ app.post('/book', (req, res) => {
     res.send('Book is added to the database');
 }) 
 
-// Start clients and run the app and visit the endpoint
+// Create an endpoint to get all the books from the API.
+// Restart server and there will be a JSON response of all the books.
+app.get('/book', (req, res) => {
+    res.json(books);
+});
+
+
+// Start clients and run the app and visit the endpoint.
 // node book-api.js
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
