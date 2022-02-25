@@ -77,6 +77,25 @@ app.get('/book', (req, res) => {
     res.json(books);
 });
 
+// Retrieve a book by ISBN
+// Parametrized URL - by adding a colon to the path, we can define
+// a variable, mapped to the variable isbn.
+app.get('/book/:isbn', (req, res) => {
+    // Reading isbn from the URL
+    const isbn = req.params.isbn;
+
+    // Searching books for the isbn
+    for (let book of books) {
+        if (book.isbn === isbn) {
+            res.json(book);
+            console.log(res.json(book));
+            return;
+        }
+    }
+
+    // Sending 404 when not found
+    res.status(404).send('Book not found');
+});
 
 // Start clients and run the app and visit the endpoint.
 // node book-api.js
