@@ -97,6 +97,23 @@ app.get('/book/:isbn', (req, res) => {
     res.status(404).send('Book not found');
 });
 
+// Delete a book by ISBN
+app.delete('/book/:isbn', (req, res) => {
+    // Reading isbn from the URL
+    const isbn = req.params.isbn;
+
+    // Remove item from the books array
+    books = books.filter(i => {
+        if (i.isbn !== isbn) {
+            return true;
+        }
+        return false;
+    });
+
+    // sending 404 when not found
+    res.send('Book is deleted');
+});
+
 // Start clients and run the app and visit the endpoint.
 // node book-api.js
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
