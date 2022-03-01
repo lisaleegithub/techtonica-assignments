@@ -9,6 +9,9 @@ const bodyParser = require('body-parser');
 // specifies which domains access your resources.
 const cors = require('cors');
 
+// Import path
+const path = require('path');
+
 // Instantiate express and assign app variable.
 const app = express();
 // Set port to be used when we tell the app to listen to requests.
@@ -72,9 +75,15 @@ app.post('/book', (req, res) => {
 }) 
 
 // Create an endpoint to get all the books from the API.
-// Restart server and there will be a JSON response of all the books.
-app.get('/book', (req, res) => {
+
+app.get('/books', (req, res) => {
     res.json(books);
+});
+
+// Restart server and there will be a JSON response of all the books.
+// A new page to show books.
+app.get('/book', (req, res) => {
+    res.sendFile(path.join(__dirname, '/new-book.html'));
 });
 
 // Retrieve a book by ISBN
