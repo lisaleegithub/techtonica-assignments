@@ -20,6 +20,7 @@ function App() {
     return (
     <div className="App">
       <h1>5-Day Forecast for Seattle, WA</h1>
+      <h3> 🌏 lat:47.60 lon:-122.33</h3>
       
       {(Object.keys(days).length === 0) ? (
         <p>Loading...</p>

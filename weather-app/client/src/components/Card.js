@@ -9,7 +9,7 @@ const Card = ({props}) => {
     return (
         <div className="card">
           <h3 className="day">{pstDate.toString()} PST</h3>
-          <p> Weather icon goes here</p>
+          <img src={`http://openweathermap.org/img/w/${props.weather[0].icon}.png`} width="100px" />
           <p><strong>Min. Temperature:</strong> {props.temp.min} &deg;F</p>
           <p><strong>Max. Temperature:</strong> {props.temp.max} &deg;F</p>
           <p><strong>Description:</strong> {props.weather[0].description}</p>
