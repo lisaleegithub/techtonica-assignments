@@ -13,14 +13,14 @@ app.use(cors());
 //     res.send('Hello World, from express');
 // });
 
-// an api endpoint that returns the first day weather info from 5-day forecast
+// an api endpoint that returns 7-day forecast
 const api_key = process.env.API_KEY
 app.get('/api/weather', (req, res) => {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=47.6038321&lon=-122.3300624&appid=${api_key}&units=imperial`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=47.6038321&lon=-122.3300624&exclude=current,minutely,hourly&appid=${api_key}&units=imperial`)
     .then(res => res.json())
-    .then(data => data.list[0])
-    .then(day => {
-        res.send({day});
+    .then(data => data.daily)
+    .then(days => {
+        res.send({days});
     })
 });
 

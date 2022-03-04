@@ -1,9 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 
 function App() {
-  const [day, setDay] = useState({})
+  const [days, setDay] = useState({})
     
   {/* useEffect(<function>, <dependency>) */}
 // useEffect: pass a function () everything inside the function 
@@ -12,24 +13,25 @@ function App() {
     useEffect(() => {
       fetch("/api/weather")
       .then((res) => res.json())
-      .then((data) => setDay(data.day))
+      .then((data) => setDay(data.days))
       console.log("hello");
     }, [])
-    console.log(day)
+    console.log(days)
 
     return (
     <div className="App">
       <h1>Weather App</h1>
       
-      {(Object.keys(day).length === 0) ? (
+      {(Object.keys(days).length === 0) ? (
         <p>Loading...</p>
       ) : (
         // show: day, date, time, icon, temp, descrip
         <div>
-          <p>{day.dt_txt}</p>
+          <p>{days[0].dt}</p>
           <p>Icon Here</p>
-          <p>Temperature: {day.main.temp} &deg;F</p>
-          <p>Description: {day.weather[0].description}</p>
+          <p>Min. Temperature: {days[0].temp.min} &deg;F</p>
+          <p>Max. Temperature: {days[0].temp.max} &deg;F</p>
+          <p>Description: {days[0].weather[0].description}</p>
         </div>
       )
     }
