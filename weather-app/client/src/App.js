@@ -1,7 +1,6 @@
-// import logo from './logo.svg';
-import './App.css';
+import './styles.css';
 import React, { useEffect, useState } from 'react';
-import moment from 'moment';
+import Card from './components/Card';
 
 function App() {
   const [days, setDay] = useState({})
@@ -20,18 +19,17 @@ function App() {
 
     return (
     <div className="App">
-      <h1>Weather App</h1>
+      <h1>5-Day Forecast for Seattle, WA</h1>
       
       {(Object.keys(days).length === 0) ? (
         <p>Loading...</p>
       ) : (
-        // show: day, date, time, icon, temp, descrip
         <div>
-          <p>{days[0].dt}</p>
-          <p>Icon Here</p>
-          <p>Min. Temperature: {days[0].temp.min} &deg;F</p>
-          <p>Max. Temperature: {days[0].temp.max} &deg;F</p>
-          <p>Description: {days[0].weather[0].description}</p>
+          <Card props={days[0]} />
+          <Card props={days[1]} />
+          <Card props={days[2]} />
+          <Card props={days[3]} />
+          <Card props={days[4]} />
         </div>
       )
     }

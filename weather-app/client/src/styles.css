@@ -1,0 +1,28 @@
+body {
+    background: rgb(184,143,187);
+    background: linear-gradient(90deg, rgba(184,143,187,1) 0%, rgba(223,199,237,1) 27%, rgba(215,203,224,1) 56%, rgba(255,217,195,1) 100%);
+
+}
+    
+    * {
+    font-family: 'Hubballi', cursive;
+
+}
+    
+.card {
+    border: solid;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    border-radius: 5px;
+    background: lavender;
+}
+
+.day {
+    font-weight: 900;
+}
+
+
+p {
+    background: lavender;
+}
