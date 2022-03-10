@@ -16,7 +16,7 @@ app.get('/api/quiz', (req, res) => {
     fetch(api_url)
     .then(res => res.json())
     .then(data => {
-        res.send({data});
+        res.send(data.results);
     });
 });
 
