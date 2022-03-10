@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     res.json({ message: 'Hello from Express' });
   });
 
-const api_url = "https://opentdb.com/api.php?amount=10&category=12&type=multiple";
+const api_url = "https://opentdb.com/api.php?amount=5&category=19";
 app.get('/api/quiz', (req, res) => {
     fetch(api_url)
     .then(res => res.json())
