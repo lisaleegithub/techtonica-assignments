@@ -2,6 +2,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Quizbox from './Components/Quizbox';
+// import RadioButton from './Components/RadioButton';
 
 function App() {
   const [data, setData] = useState({});
@@ -16,13 +17,15 @@ function App() {
         console.log(data)
         // console.log(data[0].question)
         // console.log(data[0].incorrect_answers)
-        // console.log(data[0].correct_answer)
+        console.log(data[0].correct_answer)
       })
   }
 
   useEffect(() => {
     fetchData()
   }, [])
+
+
 
   return (
     <div className="App">
@@ -36,7 +39,9 @@ function App() {
       ) : (
       <div>  
         <Quizbox quiz={data[0]}/> 
+
       </div>
+
 
       )}
     </div>
