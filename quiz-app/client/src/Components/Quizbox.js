@@ -1,6 +1,5 @@
 import { useState } from "react";
 import RadioButton from "./RadioButton";
-import Next from "./Next";
 
 const Quizbox = (props) => {
     const [message, setMessage]  = useState("");
@@ -29,31 +28,26 @@ const Quizbox = (props) => {
     }
 
     const handleChange = (label) => {
-        // check against correct answer
         if (label === props.quiz.correct_answer) {
             setMessage("yay you got it right!")
         } else {
             setMessage("wrong :(");
         }
-        console.log(label);
+        // console.log(label);
       }
-
-    function nextClicked(){
-        console.log("next button clicked");
-    }
 
     return (
         <div>
             <p>{htmlDecode(props.quiz.question)}</p>
+
             <ul>
                 {options.map((option) => <RadioButton label={option} onChange={handleChange} />)}
             </ul>
+
             <div className="message">
                 {message}
             </div>
-            <Next onClick={nextClicked}  />
         </div>
     )
 }
-
 export default Quizbox;

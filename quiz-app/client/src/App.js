@@ -2,11 +2,11 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Quizbox from './Components/Quizbox';
-// import RadioButton from './Components/RadioButton';
 
 function App() {
   const [data, setData] = useState({});
-  
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+
   const fetchData = () => {
     fetch("/api/quiz")
       .then(res => {
@@ -17,7 +17,7 @@ function App() {
         console.log(data)
         // console.log(data[0].question)
         // console.log(data[0].incorrect_answers)
-        console.log(data[0].correct_answer)
+        // console.log(data[0].correct_answer)
       })
   }
 
@@ -25,7 +25,12 @@ function App() {
     fetchData()
   }, [])
 
-
+  const nextClicked = () => {
+    const nextQuestion = currentQuestion + 1;
+		if (nextQuestion < data.length) {
+			setCurrentQuestion(nextQuestion);
+		}
+  }
 
   return (
     <div className="App">
@@ -37,16 +42,13 @@ function App() {
       {(Object.keys(data).length === 0) ? (
         <p>Loading...</p>
       ) : (
-      <div>  
-        <Quizbox quiz={data[0]}/> 
-
+      <div className="question-text">  
+        <Quizbox quiz={data[currentQuestion]} />
+        <button onClick={() => nextClicked()}>Next</button>
       </div>
-
-
       )}
     </div>
   )
 }
-
 export default App;
 

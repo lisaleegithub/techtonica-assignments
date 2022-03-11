@@ -1,6 +1,5 @@
 
 const RadioButton = ({ label, value, onChange }) => {
-  
     return (
         <label>
         <input type="radio" checked={value} name="radio" onChange={() => onChange(label)} />
@@ -8,5 +7,4 @@ const RadioButton = ({ label, value, onChange }) => {
         </label>
     );
 };
-
 export default RadioButton;
