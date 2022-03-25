@@ -40,11 +40,11 @@ function App() {
       if data object keys length is 0, return loading
       if not true, return <div> </div>*/}
       {(Object.keys(data).length === 0) ? (
-        <p>Loading...</p>
+        <p>Loading.....</p>
       ) : (
       <div className="question-text">  
         <Quizbox quiz={data[currentQuestion]} />
-        <button onClick={() => nextClicked()}>Next</button>
+        <button type="submit" onClick={() => nextClicked()}>Next</button>
       </div>
       )}
     </div>
